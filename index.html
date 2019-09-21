@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>記事検索アプリ1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app">
+
+      <div class="bg-hero">
+        <div class="container-decoration">
+          <div class="container">
+            <h1 class="top-title">WORLD WIDE NEWS</h1>
+            <div class="next-page">
+              <a class="start flash" href="#sortbox">START</a>
+            </div>
+          </div>
+        </div>
+      </div> <!-- ヒーローイメージ -->
+
+
+          <div id ="sortbox" class="sortbox">
+            <input placeholder="キーワードを入力" type="text" v-model="keyword">
+            <select v-model="pageSize" v-cloak>
+              <option disabled>選択して下さい</option>
+              <option v-for="pagesize in pageSizes">{{pagesize}}</option>
+            </select>
+            <select v-model="sortBy" v-cloak>
+              <option disabled>選択して下さい</option>
+              <option v-for="sortby in sortBys">{{sortby}}</option>
+            </select>
+          </div>
+
+          <p v-if="message!==''" class="loading-message flash" v-cloak>{{message}}</p>
+          <!-- <p>{{$data}}</p> -->
+          <ul>
+            <li v-for="result in results" v-cloak>
+              <div class="article-title">{{result.title}}</div>
+              <div class="article-img">
+                <a :href="result.url">
+                  <img v-if="result.urlToImage === null" class="article-thumbnail" src="img/no_image2.png" alt="サムネイルが設定されていません">
+                  <img v-else class="article-thumbnail" :src="result.urlToImage" alt="エラーでサムネイルが取得できませんでした">
+                </a>
+              </div>
+              <div class="article-description">{{result.description}}</div>
+            </li>
+          </ul>
+
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+<script src="smooth-scroll.polyfills.min.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>

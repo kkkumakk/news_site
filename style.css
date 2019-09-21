@@ -1,0 +1,179 @@
+@charset 'utf-8';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+#app .container-decoration {
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+}
+#app .container {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #fff;
+}
+#app a {
+  text-decoration: none;
+}
+#app ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#app ul li {
+  width: 28%;
+  margin-bottom: 4em;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+#app ul li:hover {
+  box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.2);
+}
+#app ul li .article-thumbnail {
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+    transition-duration: 0.5s;
+}
+#app ul li .article-thumbnail:hover {
+  transform: scale(1.1);
+  transition-duration: 1s;
+}
+#app ul li .article-img {
+  overflow: hidden;
+}
+#app ul li .article-title {
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+#app ul li .article-description {
+  padding: 20px;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+#app input, select {
+  width: 25%;
+}
+#app select {
+  margin-left: 2em;
+}
+#app .sortbox {
+  display: flex;
+  padding: 3em 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#app .loading-message {
+  text-align: center;
+  margin-bottom: 2em;
+}
+#app .top-title {
+  text-align: center;
+  border-bottom: 2px solid #fff;
+  font-weight: normal;
+  font-size: 3em;
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+}
+input, select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0.2em;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+}
+select {
+  background: url(img/select_menu_icon.png) no-repeat center right 8px/16px 16px;
+}
+select::-ms-expand {
+  display: none;
+}
+input, select:focus {
+  box-shadow: none;
+  outline: none;
+}
+input:hover, select:hover {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.bg-hero {
+  background: url(img/image_top4.jpg) no-repeat center center / cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+.next-page {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+}
+.start {
+  display: block;
+  font-size: 2.5em;
+  text-decoration: none;
+  padding: 8px;
+  color: #fff;
+}
+.flash {
+  animation: flash 2.5s linear infinite alternate;
+}
+@keyframes flash {
+  0%,100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/*レスポンシブ*/
+@media(max-width:1200px) {
+  #app ul li {
+    width: 45%;
+    margin-bottom: 3em;
+  }
+  #app .top-title {
+    font-size: 2.5em;
+  }
+  #app .start {
+    font-size: 2em;
+  }
+}
+@media(max-width:768px) {
+  #app ul li {
+    width: 80%;
+    margin-bottom: 2em;
+  }
+  #app input, select {
+    width: 60%;
+  }
+  #app select {
+    margin-left: 0;
+    margin-top: 1em;
+  }
+  #app .top-title {
+    font-size: 2em;
+  }
+  #app .start {
+    font-size: 1.5em;
+  }
+}
