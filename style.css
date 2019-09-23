@@ -118,7 +118,7 @@ input:hover, select:hover {
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 .bg-hero {
-  background: url(img/image_top4.jpg) no-repeat center center / cover;
+  background: url(img/image_top7.jpeg) no-repeat center center / cover;
   background-attachment: fixed;
   height: 100vh;
 }
