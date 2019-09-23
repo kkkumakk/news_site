@@ -6,6 +6,9 @@
   box-sizing: border-box;
   font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
+[v-cloak] {
+  display: none;
+}
 #app .container-decoration {
   height: 100%;
   width: 100%;
@@ -55,11 +58,6 @@
 #app ul li .article-description {
   padding: 20px;
 }
-
-[v-cloak] {
-  display: none;
-}
-
 #app input, select {
   width: 25%;
 }
@@ -76,17 +74,19 @@
   text-align: center;
   margin-bottom: 2em;
 }
-#app .top-title {
+#app .top-wrap {
   text-align: center;
-  border-bottom: 2px solid #fff;
-  font-weight: normal;
-  font-size: 3em;
   color: rgba(255, 255, 255, 1);
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform : translate(-50%,-50%);
   transform : translate(-50%,-50%);
+}
+#app .top-title {
+  border-bottom: 2px solid #fff;
+  font-weight: normal;
+  font-size: 3em;
 }
 input, select {
   -moz-appearance: none;
@@ -118,13 +118,6 @@ input:hover, select:hover {
   background: url(img/image_top4.jpg) no-repeat center center / cover;
   background-attachment: fixed;
   height: 100vh;
-}
-.next-page {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  -webkit-transform : translate(-50%,-50%);
-  transform : translate(-50%,-50%);
 }
 .start {
   display: block;
