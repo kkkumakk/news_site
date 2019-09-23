@@ -101,6 +101,9 @@ input, select {
   font-size: 1em;
   padding: 0.4em 0.8em;
 }
+input {
+  background: url(img/search_icon.png) no-repeat center right 8px/16px 16px;
+}
 select {
   background: url(img/select_menu_icon.png) no-repeat center right 8px/16px 16px;
 }
