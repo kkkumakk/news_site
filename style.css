@@ -1,4 +1,4 @@
-@charset 'utf-8';
+@charset "utf-8";
 
 * {
   padding: 0;
@@ -8,16 +8,6 @@
 }
 [v-cloak] {
   display: none;
-}
-#app .container-decoration {
-  height: 100%;
-  width: 100%;
-  padding: 30px;
-}
-#app .container {
-  height: 100%;
-  width: 100%;
-  border: 1px solid #fff;
 }
 #app a {
   text-decoration: none;
@@ -82,6 +72,8 @@
   left: 50%;
   -webkit-transform : translate(-50%,-50%);
   transform : translate(-50%,-50%);
+  padding: 30px;
+  border: 2px solid #fff;
 }
 #app .top-title {
   border-bottom: 2px solid #fff;
@@ -118,10 +110,13 @@ input:hover, select:hover {
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 .bg-hero {
-  background: url(img/image_top7.jpeg) no-repeat center center / cover;
   background-attachment: fixed;
   height: 100vh;
+  width: 100%;
+  object-fit: cover;
 }
+
+
 .start {
   display: block;
   font-size: 2.5em;

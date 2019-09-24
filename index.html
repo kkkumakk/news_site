@@ -10,16 +10,11 @@
 
     <div id="app">
 
-      <div class="bg-hero">
-        <div class="container-decoration">
-          <div class="container">
-            <div class="top-wrap">
-              <h1 class="top-title">WORLD WIDE NEWS</h1>
-              <div class="next-page">
-                <a class="start flash" href="#sortbox">START</a>
-              </div>
-            </div>
-          </div>
+      <img src="img/image_top7.jpeg"  class="bg-hero">
+      <div class="top-wrap">
+        <h1 class="top-title">WORLD WIDE NEWS</h1>
+        <div class="next-page">
+          <a class="start flash" href="#sortbox">START</a>
         </div>
       </div>
 
@@ -39,14 +34,16 @@
 
       <ul>
         <li v-for="result in results" v-cloak>
-          <div class="article-title">{{result.title}}</div>
-          <div class="article-img">
-            <a :href="result.url">
-              <img v-if="result.urlToImage === null" class="article-thumbnail" src="img/no_image2.png" alt="サムネイルが設定されていません">
-              <img v-else class="article-thumbnail" :src="result.urlToImage" alt="エラーでサムネイルが取得できませんでした">
-            </a>
-          </div>
-          <div class="article-description">{{result.description}}</div>
+          <article class="article-list">
+            <h2 class="article-title">{{result.title}}</h2>
+            <div class="article-img">
+              <a :href="result.url">
+                <img v-if="result.urlToImage === null" class="article-thumbnail" src="img/no_image2.png" alt="サムネイルが設定されていません">
+                <img v-else class="article-thumbnail" :src="result.urlToImage" alt="エラーでサムネイルが取得できませんでした">
+              </a>
+            </div>
+            <p class="article-description">{{result.description}}</p>
+          </article>
         </li>
       </ul>
 
