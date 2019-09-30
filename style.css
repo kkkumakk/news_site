@@ -151,7 +151,7 @@ input:hover, select:hover {
 /*レスポンシブ*/
 @media(max-width:1200px) {
   #app ul li {
-    width: 45%;
+    width: 40%;
     margin-bottom: 3em;
   }
   #app .top-title {
