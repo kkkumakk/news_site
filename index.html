@@ -32,13 +32,14 @@
 
       <p v-if="message!==''" class="loading-message flash" v-cloak>{{message}}</p>
 
-      <ul>
+
+      <ul v-show="ok">
         <li v-for="result in results" v-cloak>
           <article class="article-list">
             <h2 class="article-title">{{result.title}}</h2>
             <div class="article-img">
               <a :href="result.url">
-                <img v-if="result.urlToImage === null" class="article-thumbnail" src="img/no_image2.png" alt="サムネイルが設定されていません">
+                <img v-if="result.urlToImage === null || result.urlToImage === undefined" class="article-thumbnail" src="img/no_image2.png" alt="サムネイルが設定されていません">
                 <img v-else class="article-thumbnail" :src="result.urlToImage" alt="エラーでサムネイルが取得できませんでした">
               </a>
             </div>
@@ -47,9 +48,24 @@
         </li>
       </ul>
 
+      <!-- <ul v-cloak>
+        <li v-for="result in results" v-cloak>
+          <article class="article-list">
+            <h2 class="article-title">{{result.title}}</h2>
+            <div class="article-img">
+              <a :href="result.url">
+                <img v-if="result.urlToImage === null || result.urlToImage === undefined" class="article-thumbnail" src="img/no_image2.png" alt="サムネイルが設定されていません">
+                <img v-else class="article-thumbnail" :src="result.urlToImage" alt="エラーでサムネイルが取得できませんでした">
+              </a>
+            </div>
+            <p class="article-description">{{result.description}}</p>
+          </article>
+        </li>
+      </ul> -->
+
     </div><!-- #app -->
 
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 <script src="smooth-scroll.polyfills.min.js"></script>
