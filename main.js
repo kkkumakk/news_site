@@ -5,6 +5,13 @@
 // let todayMonth = dateToday.getMonth() + 1;
 // let todayDate =  dateToday.getDate();
 
+// let url = 'https://newsapi.org/v2/everything?' +
+//     'q=' + this.keyword + '&' +
+//     'from=' + todayYear + '-' + todayMonth + '-' + todayDate + '&' +
+//     'sortBy=' + app.data.reqSortBy + '&' +
+//     'pageSize=' + app.pageSize + '&' +
+//     'apikey=' + '2dac0b01ed64490faa1e0d3c762ed5ae'
+
 const app = new Vue({
   el: '#app',
   data: {
@@ -40,12 +47,11 @@ const app = new Vue({
   methods: {
     getAnswer() { //短縮記法(P.60)
       if(this.keyword === '') {
-        this.results = null
+        this.results = []
         this.message = 'キーワードを入力してください'
         return
       }
 
-      this.ok = false
       this.message = 'Loading ...'
 
       if(this.sortBy === '人気順') {
@@ -54,19 +60,24 @@ const app = new Vue({
         this.reqSortBy = 'publishedAt'
       }
 
-      // let url = 'https://newsapi.org/v2/everything?' +
-      //     'q=' + this.keyword + '&' +
-      //     'from=' + todayYear + '-' + todayMonth + '-' + todayDate + '&' +
-      //     'sortBy=' + this.reqSortBy + '&' +
-      //     'pageSize=' + this.pageSize + '&' +
-      //     'apikey=' + '2dac0b01ed64490faa1e0d3c762ed5ae'
+      const dateToday = new Date();
+      const todayYear = dateToday.getFullYear();
+      const todayMonth = dateToday.getMonth() + 1;
+      const todayDate =  dateToday.getDate();
 
-      let url = 'https://newsapi.org/v2/everything?' +
+      const url = 'https://newsapi.org/v2/everything?' +
           'q=' + this.keyword + '&' +
-          'from=2019-10-01' + '&' +
+          'from=' + todayYear + '-' + todayMonth + '-' + todayDate + '&' +
           'sortBy=' + this.reqSortBy + '&' +
           'pageSize=' + this.pageSize + '&' +
           'apikey=' + '2dac0b01ed64490faa1e0d3c762ed5ae'
+
+      // let url = 'https://newsapi.org/v2/everything?' +
+      //     'q=' + this.keyword + '&' +
+      //     'from=2019-10-01' + '&' +
+      //     'sortBy=' + this.reqSortBy + '&' +
+      //     'pageSize=' + this.pageSize + '&' +
+      //     'apikey=' + '2dac0b01ed64490faa1e0d3c762ed5ae'
 
       axios.get(url)
       .then((response) => {
@@ -74,10 +85,10 @@ const app = new Vue({
         console.log(url);
       })
       .finally((response) => {
-        this.ok = true
         if(this.results.length === 0) {
           this.message = '検索結果がありません'
         } else {
+          this.ok = true
           this.message = ''
         }
       })
